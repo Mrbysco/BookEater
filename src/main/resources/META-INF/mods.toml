@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="[46,)"
+issueTrackerURL="https://github.com/Mrbysco/BookEater/issues"
+license="MIT"
+
+[[mods]]
+modId="bookeater"
+version="${file.jarVersion}"
+displayName="Book Eater"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/book-eater"
+authors="Mrbysco, ShyNieke"
+description='''
+I give my enchantments
+Not for experience, but for you
+Book Eater
+'''
+[[dependencies.bookeater]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20,1.21)"
+ordering="NONE"
+side="BOTH"

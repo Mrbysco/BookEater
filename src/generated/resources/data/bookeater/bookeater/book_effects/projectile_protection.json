@@ -1,0 +1,5 @@
+{
+  "effectID": "bookeater:projectile_protection",
+  "enchantmentID": "minecraft:projectile_protection",
+  "useEffectTag": true
+}

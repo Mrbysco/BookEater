@@ -1,0 +1,5 @@
+{
+  "effectID": "bookeater:knockback",
+  "enchantmentID": "minecraft:knockback",
+  "useEffectTag": true
+}
