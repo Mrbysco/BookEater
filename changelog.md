@@ -1,0 +1,1 @@
+* Initial beta (Still lacking effects for some enchantments)
