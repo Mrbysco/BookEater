@@ -31,7 +31,6 @@ public class BookEater {
 		ModRegistry.BLOCKS.register(eventBus);
 		ModRegistry.BLOCK_ENTITY_TYPES.register(eventBus);
 		ModRegistry.ITEMS.register(eventBus);
-		ModRegistry.MINECRAFT_ITEMS.register(eventBus);
 		ModRegistry.MOB_EFFECTS.register(eventBus);
 
 		MinecraftForge.EVENT_BUS.register(new DamageHandler());
