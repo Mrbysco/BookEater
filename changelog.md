@@ -1,1 +1,1 @@
-* Initial beta (Still lacking effects for some enchantments)
+* Initial update to 1.20.4 (NeoForge)
