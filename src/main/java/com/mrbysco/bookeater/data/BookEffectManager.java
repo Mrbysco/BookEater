@@ -4,15 +4,15 @@ import com.mrbysco.bookeater.BookEater;
 import com.mrbysco.bookeater.api.BookData;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraftforge.event.OnDatapackSyncEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class BookEffectManager {
 		List<BookData> dataList = new ArrayList<>();
 		Map<Enchantment, Integer> enchantments = EnchantmentHelper.getEnchantments(stack);
 		for (Map.Entry<Enchantment, Integer> entry : enchantments.entrySet()) {
-			ResourceLocation enchantmentID = ForgeRegistries.ENCHANTMENTS.getKey(entry.getKey());
+			ResourceLocation enchantmentID = BuiltInRegistries.ENCHANTMENT.getKey(entry.getKey());
 			getValues().stream().filter(bookData -> bookData.enchantmentID().equals(enchantmentID))
 					.findFirst().ifPresent(dataList::add);
 		}

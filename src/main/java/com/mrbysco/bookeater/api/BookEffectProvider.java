@@ -10,7 +10,8 @@ import cpw.mods.modlauncher.api.LamdbaExceptionUtils;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.neoforged.neoforge.common.conditions.ICondition;
+import net.neoforged.neoforge.common.conditions.WithConditions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,6 +20,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public abstract class BookEffectProvider implements DataProvider {
@@ -50,7 +52,7 @@ public abstract class BookEffectProvider implements DataProvider {
 	protected abstract void start();
 
 	public <T extends BookData> void addEffect(String path, T instance, List<ICondition> conditions) {
-		JsonElement json = BookData.DIRECT_CODEC.encodeStart(JsonOps.INSTANCE, instance).getOrThrow(false, s -> {
+		JsonElement json = BookData.CONDITIONAL_CODEC.encodeStart(JsonOps.INSTANCE, Optional.of(new WithConditions<>(conditions, instance))).getOrThrow(false, s -> {
 		});
 		this.toSerialize.put(path, json);
 	}
@@ -60,8 +62,7 @@ public abstract class BookEffectProvider implements DataProvider {
 	}
 
 	@Override
-	public String getName()
-	{
+	public String getName() {
 		return "Book Effects : " + modid;
 	}
 }

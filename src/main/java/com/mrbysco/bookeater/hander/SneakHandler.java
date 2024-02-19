@@ -2,8 +2,8 @@ package com.mrbysco.bookeater.hander;
 
 import com.mrbysco.bookeater.registry.ModRegistry;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.client.event.MovementInputUpdateEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.client.event.MovementInputUpdateEvent;
 
 public class SneakHandler {
 

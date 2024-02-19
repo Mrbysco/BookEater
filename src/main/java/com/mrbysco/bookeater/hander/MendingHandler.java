@@ -3,8 +3,8 @@ package com.mrbysco.bookeater.hander;
 import com.mrbysco.bookeater.registry.ModRegistry;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.event.entity.player.PlayerXpEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerXpEvent;
 
 public class MendingHandler {
 

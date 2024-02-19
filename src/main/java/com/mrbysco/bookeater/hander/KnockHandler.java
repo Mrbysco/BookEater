@@ -4,11 +4,11 @@ import com.mrbysco.bookeater.registry.ModRegistry;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.event.entity.living.LivingEvent;
+import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
+import net.neoforged.neoforge.event.entity.living.LivingKnockBackEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -58,7 +58,7 @@ public class KnockHandler {
 
 		Vec3 motion = livingEntity.getDeltaMovement();
 		if (!livingEntity.isSuppressingBounce()) {
-			double gravity = livingEntity.getAttributeValue(ForgeMod.ENTITY_GRAVITY.get());
+			double gravity = livingEntity.getAttributeValue(NeoForgeMod.ENTITY_GRAVITY);
 			double time = Math.sqrt(livingEntity.fallDistance / gravity);
 			double velocity = gravity * time;
 			livingEntity.setDeltaMovement(motion.x / 0.975f, velocity, motion.z / 0.975f);

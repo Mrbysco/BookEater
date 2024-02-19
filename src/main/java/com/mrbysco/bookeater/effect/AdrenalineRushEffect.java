@@ -18,7 +18,7 @@ public class AdrenalineRushEffect extends CustomEffect {
 	}
 
 	@Override
-	public boolean isDurationEffectTick(int duration, int amplifier) {
+	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
 		return true;
 	}
 
@@ -51,6 +51,6 @@ public class AdrenalineRushEffect extends CustomEffect {
 		}
 
 		return new AttributeModifier(attributeUUID,
-				this::getDescriptionId, (double) Mth.clamp(value, 0, 0.1D), AttributeModifier.Operation.ADDITION);
+				AdrenalineRushEffect.this.getDescriptionId(), (double) Mth.clamp(value, 0, 0.1D), AttributeModifier.Operation.ADDITION);
 	}
 }

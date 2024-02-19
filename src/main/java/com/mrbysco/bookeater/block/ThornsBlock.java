@@ -1,5 +1,6 @@
 package com.mrbysco.bookeater.block;
 
+import com.mojang.serialization.MapCodec;
 import com.mrbysco.bookeater.blockentity.ThornsBlockEntity;
 import com.mrbysco.bookeater.registry.ModRegistry;
 import net.minecraft.core.BlockPos;
@@ -23,10 +24,16 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class ThornsBlock extends BushBlock implements EntityBlock {
+	public static final MapCodec<ThornsBlock> CODEC = simpleCodec(ThornsBlock::new);
 	private static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
 	public ThornsBlock(Properties properties) {
 		super(properties);
+	}
+
+	@Override
+	protected MapCodec<? extends BushBlock> codec() {
+		return CODEC;
 	}
 
 	@Override

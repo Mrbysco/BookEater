@@ -3,8 +3,6 @@
   "bookeater.bound.message": "You can't do that, you're bound to the current dimension",
   "effect.bookeater.adrenaline_rush": "Adrenaline Rush",
   "effect.bookeater.adrenaline_rush.description": "The user will get faster the lower their health gets.",
-  "effect.bookeater.aqua_affinity": "Aqua Affinity",
-  "effect.bookeater.aqua_affinity.description": "Allows the user to use tools underwater.",
   "effect.bookeater.backstabbing": "Backstabbing",
   "effect.bookeater.backstabbing.description": "The user will do more damage if done from behind.",
   "effect.bookeater.bane_of_arthropods": "Bane of Arthropods",
@@ -44,5 +42,7 @@
   "effect.bookeater.water_walking": "Water Walking",
   "effect.bookeater.water_walking.description": "The user gains the ability to walk on water.",
   "effect.bookeater.weed_wacker": "Weed Wacker",
-  "effect.bookeater.weed_wacker.description": "Allows the user to hit mobs through weeds."
+  "effect.bookeater.weed_wacker.description": "Allows the user to hit mobs through weeds.",
+  "effect.unregistered_sadface": "Aqua Affinity",
+  "effect.unregistered_sadface.description": "Allows the user to use tools underwater."
 }

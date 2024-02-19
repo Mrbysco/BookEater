@@ -4,10 +4,8 @@ import com.mrbysco.bookeater.BookEater;
 import com.mrbysco.bookeater.registry.ModRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.BlockModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class BookBlockModels extends BlockModelProvider {
 	public BookBlockModels(PackOutput packOutput, ExistingFileHelper helper) {
@@ -16,12 +14,12 @@ public class BookBlockModels extends BlockModelProvider {
 
 	@Override
 	protected void registerModels() {
-		crossBlock(ModRegistry.THORNS_BLOCK.get(), modLoc("block/thorns"));
+		crossBlock(ModRegistry.THORNS_BLOCK.getId(), modLoc("block/thorns"));
 	}
 
 
-	protected void crossBlock(Block block, ResourceLocation oreTexture) {
-		String path = ForgeRegistries.BLOCKS.getKey(block).getPath();
+	protected void crossBlock(ResourceLocation blockLocation, ResourceLocation oreTexture) {
+		String path = blockLocation.getPath();
 		withExistingParent(path, mcLoc("block/cross"))
 				.texture("cross", oreTexture).renderType("cutout");
 	}

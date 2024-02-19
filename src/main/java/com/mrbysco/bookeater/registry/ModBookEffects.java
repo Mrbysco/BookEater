@@ -2,7 +2,7 @@ package com.mrbysco.bookeater.registry;
 
 import com.mrbysco.bookeater.BookEater;
 import com.mrbysco.bookeater.api.BookData;
-import net.minecraftforge.registries.DataPackRegistryEvent;
+import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 
 public class ModBookEffects {
 	public static void onNewRegistry(DataPackRegistryEvent.NewRegistry event) {

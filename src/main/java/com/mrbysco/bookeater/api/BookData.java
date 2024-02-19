@@ -4,15 +4,19 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.mrbysco.bookeater.BookEater;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.conditions.ConditionalOps;
+import net.neoforged.neoforge.common.conditions.WithConditions;
+
+import java.util.Optional;
 
 public record BookData(ResourceLocation enchantmentID, int enchantmentLevel, boolean useEnchantmentTag,
-					   ResourceLocation effectID, int effectLevel, int effectDuration, boolean useEffectTag) {
+                       ResourceLocation effectID, int effectLevel, int effectDuration, boolean useEffectTag) {
 	public static final ResourceKey<Registry<BookData>> REGISTRY_KEY = ResourceKey.createRegistryKey(
 			new ResourceLocation(BookEater.MOD_ID, "book_effects"));
 
@@ -32,6 +36,7 @@ public record BookData(ResourceLocation enchantmentID, int enchantmentLevel, boo
 							.apply(apply, BookData::new)
 			)
 	);
+	public static final Codec<Optional<WithConditions<BookData>>> CONDITIONAL_CODEC = ConditionalOps.createConditionalCodecWithConditions(DIRECT_CODEC);
 
 	public static class Builder {
 		private final ResourceLocation enchantmentID;
@@ -48,7 +53,7 @@ public record BookData(ResourceLocation enchantmentID, int enchantmentLevel, boo
 		}
 
 		public Builder(Enchantment enchantment) {
-			this.enchantmentID = ForgeRegistries.ENCHANTMENTS.getKey(enchantment);
+			this.enchantmentID = BuiltInRegistries.ENCHANTMENT.getKey(enchantment);
 		}
 
 		public Builder setEnchantmentLevel(int enchantmentLevel) {
@@ -73,7 +78,7 @@ public record BookData(ResourceLocation enchantmentID, int enchantmentLevel, boo
 		}
 
 		public Builder effect(MobEffect effect) {
-			this.effectID = ForgeRegistries.MOB_EFFECTS.getKey(effect);
+			this.effectID = BuiltInRegistries.MOB_EFFECT.getKey(effect);
 			return this;
 		}
 

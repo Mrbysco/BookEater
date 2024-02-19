@@ -19,7 +19,7 @@ public class DepthStriderEffect extends CustomEffect {
 	}
 
 	@Override
-	public boolean isDurationEffectTick(int duration, int amplifier) {
+	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
 		return true;
 	}
 
@@ -53,6 +53,6 @@ public class DepthStriderEffect extends CustomEffect {
 		}
 
 		return new AttributeModifier(attributeUUID,
-				this::getDescriptionId, (double) Mth.clamp(value, 0, 0.1D), AttributeModifier.Operation.ADDITION);
+				DepthStriderEffect.this.getDescriptionId(), (double) Mth.clamp(value, 0, 0.1D), AttributeModifier.Operation.ADDITION);
 	}
 }

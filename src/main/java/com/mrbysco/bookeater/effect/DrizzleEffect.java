@@ -20,7 +20,7 @@ public class DrizzleEffect extends CustomEffect {
 	}
 
 	@Override
-	public boolean isDurationEffectTick(int duration, int amplifier) {
+	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
 		return true;
 	}
 
@@ -57,6 +57,6 @@ public class DrizzleEffect extends CustomEffect {
 
 	private AttributeModifier getSpeedModifier(int amplifier) {
 		return new AttributeModifier(attributeUUID,
-				this::getDescriptionId, (double) 0.2F + (0.025F * amplifier), AttributeModifier.Operation.ADDITION);
+				DrizzleEffect.this.getDescriptionId(), (double) 0.2F + (0.025F * amplifier), AttributeModifier.Operation.ADDITION);
 	}
 }

@@ -4,7 +4,7 @@ import com.mrbysco.bookeater.BookEater;
 import com.mrbysco.bookeater.registry.ModRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 import java.util.function.Supplier;
 
